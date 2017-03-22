@@ -1,0 +1,138 @@
+<div class="container headerdiv">
+<div class="row">
+  <div class="col-sm-2 text-right">
+  	<img src="images/gc.png">
+  </div>
+  
+  <div class="col-sm-7 myfont">
+	  <ul class="toplinks">
+	  	<li class="col-sm-3"><a href="#"><span class="glyphicon glyphicon-map-marker red "></span><span> Store Finder</span></a></li>
+		<li class="col-sm-3"><a href=""><span class="glyphicon glyphicon-credit-card red"></span><span> Gift Cards</span></a></li>
+		<li class="col-sm-6"><a href=""><span class="glyphicon glyphicon-credit-card red"></span><span> Get 24-Month Financing<br> and Earn 5% Back In Rewards</span></a></li>
+	  </ul>
+			<div class="input-group">
+    			<input type="text" class="form-control" placeholder="Enter keywords, item # or catalog #" />
+    			<span   class="input-group-addon redall">
+        		<span class="glyphicon glyphicon-search white"></span>
+    			</span>
+			</div>
+  </div>
+  <div class="col-sm-3 unstyle myfont">
+  	<a href="#"><span class="bolder"> 855-697-0867 </span> <span class="glyphicon glyphicon-comment red"></span></a>
+  	<div class="row">
+	  	<div class="col-sm-6">
+	  	<a href="#">Hi, Sign In <br>
+	  		My Account<span class="caret"></span></a>
+	  	</div>	
+	  	<div class="col-sm-6">
+	  	<a href="#"><span class="glyphicon glyphicon-shopping-cart text-left red"></span><span> Cart <span class="caret"></span></span></a>
+	  	</div>
+  	</div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid">
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Product</a></li>
+      <li><a href="#">Used Gear</a></li>
+      <li><a href="#">PlatInum</a></li>
+      <li><a href="#">VIntage</a></li>
+      <li><a href="#">Outlet</a></li>
+      <li><a href="#">GC Pro</a></li>
+      <li><a href="#">Lessons</a></li>
+      <li><a href="#">RepaIrs</a></li>
+      <li><a href="#">Rentals</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+		<!--HeaderController-->
+<div ng-controller="headercontroller">
+			<!--carousel-->			
+	<div class="container mycarousel">
+		<h4>Products</h4>
+			<div id="GCcarousel" class="carousel slide">
+		  			<!-- Indicators -->
+		  
+		  		<!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+				<div class="item" ng-class="{active:!$index}" ng-repeat="item in productInfo">
+					<a href="#"><img ng-src="{{item.imagepath}}"></a>
+			  </div>
+				  			<!-- Controls -->
+					  <a class="left carousel-control" href="#GCcarousel" data-slide="prev">
+					    <span class="glyphicon glyphicon-chevron-left"></span>
+					  </a>
+					  <a class="right carousel-control" href="#GCcarousel" data-slide="next">
+					    <span class="glyphicon glyphicon-chevron-right"></span>
+					  </a>
+
+			</div>
+		</div>
+		<div>
+			{{slides[currentIndex.slide]}}
+		</div>
+
+
+</div>
+</div>
+
+<div class="container GCaccordion" style="border: 5px solid blue">
+				<div class="panel-group aligntext" id="accordion">
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Product Information</a>
+			                </h4>
+			            </div>
+			            <div id="collapseOne" class="panel-collapse collapse">
+			                <div class="panel-body">
+			                    <p>hahahah</p>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Shipping Information</a>
+			                </h4>
+			            </div>
+			            <div id="collapseTwo" class="panel-collapse collapse">
+			                <div class="panel-body">
+			                   <p>hahahahah</p>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Customer Reviews</a>
+			                </h4>
+			            </div>
+			            <div id="collapseThree" class="panel-collapse collapse">
+			                <div class="panel-body">
+			                    <p>hahahah</p>
+			                </div>
+			            </div>
+			        </div>
+			        <div ng-click="BuyItem();" class="btn btn-default">Buy<span class="glyphicon glyphicon-shopping-cart text-left red"></div>
+	    		</div>
+
+			</div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+
+body{
+    margin-top: 30px;
+}
+
+.headerdiv{
+    margin-bottom: 10px;
+}
+
+.myfont{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.toplinks li{
+    text-decoration: none;
+    list-style-type: none; 
+}
+.toplinks a{
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
+.unstyle a{
+    text-decoration: none;
+    color:black;
+    list-style-type: none;
+}
+
+.white{
+    color: white;
+}
+
+
+.nav.navbar-nav li a{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.nav.navbar-nav li a:hover{
+    background-color: gray;
+}
+
+
+.bolder{
+    font-size: x-large;
+}
+
+
+.red{
+    color:#cd2418;
+    font-size: 20px;
+}
+
+h4{
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color:#cd2418;
+}
+
+.redall{
+    background-color: #cd2418;
+}
+
+.form-control{
+    background-color: lightgray;
+}
+
+
+.mycarousel{ 
+
+    width: 400px;
+    margin-bottom: 10px;
+    /*background-color: rgba(205,36,24,0.9);*/
+}
+
+.carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+   color: #cd2418;
+   height: 250px;
+}
+
+.glyphicon.glyphicon-chevron-left, .glyphicon.glyphicon-chevron-right{
+    font-size: 50px;
+}
+ 
+.carousel-inner > .item > a > img{
+width:350px; 
+margin-bottom: 15px;
+}
+
+.GCaccordion{
+    width: 400px;
+    margin-bottom: 25px;
+    padding: 10px;
+
+}
+
+.myaccordian{
+    border: 2px solid #cd2418;
+    
+}
+
+.aligntext{
+    text-align: center;
+}
+
+

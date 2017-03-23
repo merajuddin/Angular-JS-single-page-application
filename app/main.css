@@ -1,6 +1,7 @@
 
 body{
     margin-top: 30px;
+
 }
 
 .headerdiv{
@@ -60,6 +61,7 @@ h4{
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
+    text-decoration: underline;
     color:#cd2418;
 }
 
@@ -73,7 +75,6 @@ h4{
 
 
 .mycarousel{ 
-
     width: 400px;
     margin-bottom: 10px;
     /*background-color: rgba(205,36,24,0.9);*/
@@ -90,7 +91,7 @@ h4{
     font-size: 50px;
 }
  
-.carousel-inner > .item > a > img{
+.carousel-inner > .item > img{
 width:350px; 
 margin-bottom: 15px;
 }
@@ -99,16 +100,22 @@ margin-bottom: 15px;
     width: 400px;
     margin-bottom: 25px;
     padding: 10px;
-
-}
-
-.myaccordian{
     border: 2px solid #cd2418;
-    
+
 }
 
 .aligntext{
     text-align: center;
 }
 
+.formwrapper{
+    width: 600px;
+}
+
+input.ng-dirty {
+    background-color:#ff8080;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
 

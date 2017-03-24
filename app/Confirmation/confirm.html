@@ -1,1 +1,12 @@
-<h1>confirmation page</h1>
+<div class="container" ng-controller="headercontroller">
+	<div class="row aligntext">
+		<h1>CONFIRMATION</h1>
+	<h2>Thank You For Your Purchase</h2>
+	<img src="{{selectedItem.imagepath}}"><span><strong> {{selectedItem.price}} </strong></span>
+	<h3><strong>Confirmation No# </strong> <span class="red">{{confirmation}}</span></h3>
+	<p>An Email with Confirmation and Details has been sent.</p>
+	<a href="#/products"><button class="btn btn-primary">Go Back To Products</button></a>
+
+	</div>
+	
+</div>

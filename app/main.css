@@ -61,8 +61,12 @@ h4{
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
-    text-decoration: underline;
     color:#cd2418;
+}
+
+h1{
+    font-weight: bold;
+    color: #cd2418;
 }
 
 .redall{
@@ -100,8 +104,6 @@ margin-bottom: 15px;
     width: 400px;
     margin-bottom: 25px;
     padding: 10px;
-    border: 2px solid #cd2418;
-
 }
 
 .aligntext{
@@ -116,6 +118,16 @@ input.ng-dirty {
     background-color:#ff8080;
 }
 input.ng-valid {
-    background-color:lightgreen;
+    background-color:#a7f1a7;
+}
+
+.green{
+    color:green;
+    font-size: 20px;
+}
+
+.footer{
+    position: relative;
+    top: 300px;
 }
 

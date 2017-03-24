@@ -1,0 +1,92 @@
+
+		<!--HeaderController-->
+<div ng-controller="headercontroller">
+			<!--carousel-->			
+	<div class="container mycarousel">
+		<h4>PRODUCTS</h4>
+			<div id="GCcarousel" class="carousel slide">
+		  			<!-- Indicators -->
+			<ol class="carousel-indicators">
+	            <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+	            <li data-target="#mycarousel" data-slide-to="1"></li>
+	            <li data-target="#mycarousel" data-slide-to="2"></li>
+	            <li data-target="#mycarousel" data-slide-to="3"></li>
+	            <li data-target="#mycarousel" data-slide-to="4"></li>
+	            <li data-target="#mycarousel" data-slide-to="5"></li>
+	            <li data-target="#mycarousel" data-slide-to="6"></li>
+	        </ol> 
+		  		<!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+				<div class="item" ng-class="{active:!$index}" ng-repeat="item in productInfo">
+					<img ng-src="{{item.imagepath}}">
+			  </div>
+				  			<!-- Controls -->
+					  <a class="left carousel-control" href="#GCcarousel" target="_self" data-slide="prev">
+					    <span class="glyphicon glyphicon-chevron-left"></span>
+					  </a>
+					  <a class="right carousel-control" href="#GCcarousel" target="_self" data-slide="next">
+					    <span class="glyphicon glyphicon-chevron-right"></span>
+					  </a>
+
+			</div>
+		</div>
+		<div class="container GCaccordion aligntext">
+				<div class="panel-group aligntext" id="accordion">
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" target="_self">Product Information</a>
+			                </h4>
+			            </div>
+			            <div id="collapseOne" class="panel-collapse collapse">
+			                <div class="panel-body aligntext">
+			                	<p><strong>Price:</strong> {{slides[currentIndex.slide].price}}</p>
+			                    <p><strong>Product Info:</strong><br>{{slides[currentIndex.slide].productdiscription}}</p>
+			                    <p><strong>Items Left:</strong> {{slides[currentIndex.slide].noofitems}}</p>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" target="_self">Shipping Information</a>
+			                </h4>
+			            </div>
+			            <div id="collapseTwo" class="panel-collapse collapse">
+			                <div class="panel-body">
+			                   <p>{{slides[currentIndex.slide].shippingdetails}}</p>
+			                </div>
+			            </div>
+			        </div>
+
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" target="_self">Customer Reviews</a>
+			                </h4>
+			            </div>
+			            <div id="collapseThree" class="panel-collapse collapse">
+			                <div class="panel-body">
+			                    <p>{{slides[currentIndex.slide].custmerreviews}}</p>
+			                </div>
+			            </div>
+			        </div>
+	    		</div>
+	    		
+	    		<div ng-click="BuyItem();" class="btn btn-default red aligntext unstyle"><a href="#/purchase"> Buy <span class="glyphicon glyphicon-shopping-cart text-left red"></span></a>
+			    </div>
+			</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+

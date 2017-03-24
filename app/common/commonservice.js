@@ -13,4 +13,6 @@ angular.module('commonmodule').service('commonservice', function($http, $q){
 		return deffered.promise;
 	}
 
+	
+
 });

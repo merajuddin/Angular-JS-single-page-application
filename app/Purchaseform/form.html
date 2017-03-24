@@ -1,0 +1,143 @@
+<div class="container" ng-controller="headercontroller">
+	<div class="row">
+		<div class="col-sm-3 text-right">
+			<img src="{{selectedItem.imagepath}}">
+			
+		</div>
+		<div class="col-sm-9">
+			<p><strong>Price:</strong><span class="myfont"> {{selectedItem.price}}</span></p>
+			<p><strong>Product Information:</strong> {{selectedItem.productdiscription}}</p>
+			<p><strong>Shipping Information:</strong> {{selectedItem.shippingdetails}}</p>
+			<p><strong>Items Left in Stock:</strong> {{selectedItem.noofitems}}</p><hr>
+			<p><strong>Customer Reviews:</strong> {{selectedItem.custmerreviews}}</p>
+		</div>
+	</div><hr>
+
+								<!--FORM-->
+	<div class="container formwrapper">
+	<h4>PURCHASE FORM</h4>
+	<form class="form-horizontal" id="payForm" name="payForm" novalidate>
+
+		<div class="form-group">
+  		<label for="sel1">Select Quantity:</label>
+  		<select class="form-control" id="sel1" ng-model="selectedMax" ng-options="n for n in getProductCount(1,{{selectedItem.noofitems}})">
+    	<option value="" required></option>
+  		</select>
+		</div>
+
+	<div class="form-group">
+	    <label class="control-label">First Name:</label><span ng-show="payForm.firstname.$valid && payForm.firstname.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input name="firstname" type="text" class="form-control" ng-model="firstname" placeholder="First Name" required ng-maxlength="12" ng-minlength="2"/>
+		    <span style="color: red" ng-if='payForm.firstname.$dirty && payForm.firstname.$invalid'>
+		    <span ng-if="payForm.firstname.$error.required && payForm.firstname.$touched">First Name should not be Empty!</span>
+		    <span ng-if="payForm.firstname.$error.maxlength"> First Name should be only 12 characters! </span>
+		    <span ng-if="payForm.firstname.$error.minlength"> Name should be atleast 2 characters long! </span>
+		    </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Last Name:</label><span ng-show="payForm.lastname.$valid && payForm.lastname.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input name="lastname" type="text" class="form-control" ng-model="lastname" placeholder="Last Name" ng-maxlength="12" ng-minlength="2" required>
+	     <span style="color:red" ng-show="payForm.lastname.$dirty && payForm.lastname.$invalid">
+		 <span ng-show="payForm.lastname.$error.required && payForm.lastname.$touched">Last Name should not be Empty.</span>
+		 <span ng-show="payForm.lastname.$error.maxlength"> Last Name should only be 12 characters long!</span>
+		 <span ng-show="payForm.lastname.$error.minlength"> Last Name should be atleast 2 characters long!</span>
+		 </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Email:</label><span ng-show="payForm.email.$valid && payForm.email.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	    <input type="email" name="email" class="form-control" placeholder="Email" ng-model="email" required>
+	      <span style="color:red" ng-show="payForm.email.$dirty && payForm.email.$invalid">
+		  <span ng-show="payForm.email.$error.required && payForm.email.$touched">Email is Required!.</span>
+		  <span ng-show="payForm.email.$error.email">Invalid Email address.</span>
+		  </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Phone:</label><span ng-show="payForm.phone.$valid && payForm.phone.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input type="number" name="phone" class="form-control" placeholder="Optional Phone Number" ng-model="phone"  ng-minlength="10" ng-maxlength="10">
+	     <span style="color: red" ng-show="payForm.phone.$dirty && payForm.phone.$invalid">	
+	     <span ng-show=" payForm.phone.$error.required && payForm.phone.$touched"> Valid phone number is required! </span>
+         <span ng-show="((payForm.phone.$error.minlength || payForm.phone.$error.maxlength) && payForm.phone.$dirty)"> phone number should be 10 digits </span>
+         </span>
+         
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Credit Card:</label><span ng-show="payForm.card.$valid && payForm.card.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input type="number" name="card" class="form-control" placeholder="Credit Card Information" ng-model="card" ng-minlength="16" ng-maxlength="16" required>
+	     <span style="color: red" ng-show="payForm.card.$dirty && payForm.card.$invalid">	
+	      <span ng-show=" payForm.card.$error.required && payForm.card.$touched"> Valid Credit Card number is required! </span>
+          <span ng-show="((payForm.card.$error.minlength || payForm.card.$error.maxlength) && payForm.card.$dirty)"> Credit card number should be 16 digits. </span>
+          </span>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Shipping Address:</label><span ng-show="payForm.shipping.$valid && payForm.shipping.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input name="shipping" type="text" class="form-control" ng-model="shipping.address" ng-change="sameAddress && update()" placeholder="Complete Shipping Address" ng-minlength="5" ng-maxlength="45" required>
+	     <p class="help-block">Street address, P.O. box, company name | Apartment, suite , unit | City, State and Zip.</p>
+	     <span style="color:red" ng-show="payForm.shipping.$dirty && payForm.shipping.$invalid">
+		 <span ng-show="payForm.shipping.$error.required && payForm.shipping.$touched">Shipping Address Cannot be empty!</span>
+		 <span ng-show="payForm.shipping.$error.minlength"> Please Enter Correct Shipping Address</span>
+		 </span>
+	</div>
+
+	<div class="form-group">
+	    <label><input type="checkbox" name="checkbox" ng-model="sameAddress" ng-change="sameAddress && update()">Billing Address Same as Shipping Address</label><span ng-show="checkbox" class="text-success"></span>
+	</div>
+	<div class="form-group">
+	    <label class="control-label">Billing Address:</label><span ng-show="payForm.billing.$valid && payForm.billing.$dirty"><span class="glyphicon glyphicon-ok green"></span></span>
+	     <input name="billing" type="text" class="form-control" ng-model="billing.address" ng-disabled="sameAddress" placeholder="Billing Address" ng-minlength="5" ng-maxlength="45" required>
+	     <p class="help-block">Street address, P.O. box, company name | Apartment, suite , unit | City, State and Zip.</p>
+	     <span style="color:red" ng-show="payForm.billing.$dirty && payForm.billing.$invalid">
+		 <span ng-show="payForm.billing.$error.required && payForm.billing.$touched">Billing Address Cannot be empty!</span>
+		 <span ng-show="payForm.billing.$error.minlength"> Please Enter Correct Billing Address</span>
+		 </span>
+	</div>
+
+	<div class="form-group">
+	<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" ng-disabled="payForm.$invalid">Go to Review</button>
+    </div>
+
+	</form>
+</div>
+	
+			<!--Modal-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Review Your Purchase</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+      		<div class="col-sm-8">
+	      		<p>Name: {{firstname}}{{lastname}}</p>
+		        <p>Email: {{email}}</p>
+		        <p>Phone: {{phone}}</p>
+		        <p>Credit Card: {{card}}</p>
+		        <p>Shipping Details: {{shipping.address}}</p>
+		        <p>Billing Details: {{billing.address}}</p> 
+		        <p>Total Price:{{selectedItem.price * selectedMax}} </p>
+		    </div>
+      		<div class="col-sm-4">
+      		<img src="{{selectedItem.imagepath}}">
+      		<h5 class="aligntext">{{selectedItem.price}}</h5>
+      		</div>
+
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default red" data-dismiss="modal">Edit</button>
+        <button class="btn btn-default red"><a href="#/confirmation">Confirm</a></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+</div>
+
+

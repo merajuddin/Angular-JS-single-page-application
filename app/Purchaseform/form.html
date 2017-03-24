@@ -21,7 +21,7 @@
 		<div class="form-group">
   		<label for="sel1">Select Quantity:</label>
   		<select class="form-control" id="sel1" ng-model="selectedMax" ng-options="n for n in getProductCount(1,{{selectedItem.noofitems}})">
-    	<option value="" required></option>
+    		<option value=""></option>
   		</select>
 		</div>
 
@@ -120,7 +120,7 @@
 		        <p>Credit Card: {{card}}</p>
 		        <p>Shipping Details: {{shipping.address}}</p>
 		        <p>Billing Details: {{billing.address}}</p> 
-		        <p>Total Price:{{selectedItem.price * selectedMax}} </p>
+		        <p>Total Price:{{quantity}} </p>
 		    </div>
       		<div class="col-sm-4">
       		<img src="{{selectedItem.imagepath}}">
@@ -130,7 +130,8 @@
       	</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default red" data-dismiss="modal">Edit</button>
+        <button type="button" class="btn btn-default red" data-dismiss="modal">Edit <span class="
+        glyphicon glyphicon-edit"></span></button>
         <button class="btn btn-default red"><a href="#/confirmation">Confirm</a></button>
       </div>
     </div><!-- /.modal-content -->

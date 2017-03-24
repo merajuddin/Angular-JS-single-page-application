@@ -35,7 +35,7 @@ $scope.BuyItem = function(){
 
 $scope.selectedItem = JSON.parse(localStorage.getItem('currentGuitar'));
 
-/*$scope.selectedItem.noofitems = parseInt($scope.selectedItem.noofitems);*/
+/*$scope.selectedItem.noofitems = parseInt($scope.selectedItem.noofitems, 10);*/
 
 $scope.shipping = {};
 
@@ -49,7 +49,8 @@ $scope.billing = angular.copy($scope.shipping);
 $scope.confirmation = 0;
 $scope.confirmation += Math.floor(Math.random() * 900000);
 
-
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
 
 $scope.getProductCount=function(start,end){
    var temp=[];
@@ -59,8 +60,10 @@ $scope.getProductCount=function(start,end){
  return temp;
 }
 
-/*$scope.selectedMax = parseInt($scope.selectedMax);*/
+$scope.quantity = ($scope.selectedMax * $scope.selectedItem.noofitems);
 
+/*$scope.selectedMax = parseInt($scope.selectedMax, 10);
+*/
 
 
 

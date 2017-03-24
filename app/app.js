@@ -6,16 +6,19 @@ var app = angular.module('GCapp' , [
 
 app.config(function($stateProvider){
 	$stateProvider
-	.state('/', {
-		url:'/products',
+	.state('home',{
+		url:'/',
 		templateUrl:'Header/mainpage.html'
 	})
-	.state('form',{
+	.state('products', {
+		url:'/products',
+		templateUrl:'Header/mainpage.html'
+		
+	}).state('form',{
 		url:'/purchase',
 		templateUrl:'Purchaseform/form.html'
 		
-	})
-	.state('confirmation',{
+	}).state('confirmation',{
 		url:'/confirmation',
 		templateUrl:'confirmation/confirm.html'
 	});

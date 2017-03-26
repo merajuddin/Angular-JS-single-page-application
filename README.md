@@ -1,2 +1,2 @@
-AngularJS Web Application
-guitar center online shopping
+AngularJS Web Application,
+guitar-center online shopping
